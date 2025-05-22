@@ -55,10 +55,6 @@
   <ul id="tour-list"></ul>
 
   <script>
-    // Определяем базовый путь (например, /repo-name)
-    const basePath = window.location.pathname.replace(/\/index\.html$/, '').replace(/\/$/, '');
-
-    // Массив с объектами: { папка, отображаемое имя }
     const tours = [
       { folder: "Cvetochni_Gorod", name: "Цветочный город" },
       { folder: "Zeleniy_Gorod", name: "Зеленый город" },
@@ -71,8 +67,8 @@
       const li = document.createElement('li');
       const a = document.createElement('a');
 
-      // Используем basePath, чтобы путь был корректным даже на GitHub Pages
-      a.href = `${basePath}/${tour.folder}/output-1/index.html`;
+      // Просто относительный путь от текущего index.html
+      a.href = `${tour.folder}/output-1/index.html`;
       a.textContent = `📍 ${tour.name}`;
 
       li.appendChild(a);
