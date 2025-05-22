@@ -52,28 +52,24 @@
 </head>
 <body>
   <h1>🗺️ Виртуальные туры</h1>
-  <ul id="tour-list">
-    <!-- Ссылки появятся через JavaScript -->
-  </ul>
+  <ul id="tour-list"></ul>
 
   <script>
-    // Список директорий, где хранятся туры
-    const tourFolders = [
-      "Zeleny_Gorod",
-      "tur2",
-      "sochi-hotel",
-      "museum-vienna"
+    // Массив с объектами: { папка, отображаемое имя }
+    const tours = [
+      { folder: "Cvetochni_Gorod", name: "Цветочный город" },
+      { folder: "Zeleniy_Gorod", name: "Зеленый город" },
+      { folder: "Zmeiniy_Gorod", name: "Змеиный город" }
     ];
 
     const list = document.getElementById('tour-list');
 
-    tourFolders.forEach(name => {
+    tours.forEach(tour => {
       const li = document.createElement('li');
       const a = document.createElement('a');
 
-      // Ссылка прямо на index.html внутри output-1
-      a.href = `${name}/output-1/index.html`;
-      a.textContent = `📍 ${name.replace(/[-_]/g, ' ')}`;
+      a.href = `${tour.folder}/output-1/index.html`;
+      a.textContent = `📍 ${tour.name}`;
 
       li.appendChild(a);
       list.appendChild(li);
