@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Виртуальные туры</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffffff;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      max-width: 700px;
+      margin: 2rem auto;
+    }
+
+    li {
+      background-color: #1e1e1e;
+      margin: 1rem 0;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s, background-color 0.3s;
+    }
+
+    li:hover {
+      transform: translateY(-3px);
+      background-color: #2c2c2c;
+    }
+
+    a {
+      text-decoration: none;
+      color: #4fc3f7;
+      font-size: 1.15rem;
+      font-weight: 500;
+    }
+
+    a:hover {
+      color: #81d4fa;
+    }
+  </style>
+</head>
+<body>
+  <h1>🗺️ Виртуальные туры</h1>
+  <ul id="tour-list">
+    <!-- Ссылки появятся через JavaScript -->
+  </ul>
+
+  <script>
+    // Список директорий, где хранятся туры
+    const tourFolders = [
+      "Zeleny_Gorod",
+      "tur2",
+      "sochi-hotel",
+      "museum-vienna"
+    ];
+
+    const list = document.getElementById('tour-list');
+
+    tourFolders.forEach(name => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+
+      // Ссылка прямо на index.html внутри output-1
+      a.href = `${name}/output-1/index.html`;
+      a.textContent = `📍 ${name.replace(/[-_]/g, ' ')}`;
+
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+  </script>
+</body>
+</html>
